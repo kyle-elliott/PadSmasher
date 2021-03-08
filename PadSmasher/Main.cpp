@@ -158,7 +158,7 @@ std::vector<PEFunc> ParseMapFile(const std::string& FileName, const std::vector<
 			OpCode = (uint8_t*)(Function.RawAddr - 1 - Function.PadLen);
 		}
 
-		// If there's no pad and the function is natrually 16 byte aligned,
+		// If there's no pad and the function is naturally 16 byte aligned,
 		// there is nothing for us to do here.
 		if (Function.PadLen < 1)
 			continue;
@@ -180,9 +180,11 @@ int main(int argc, char* argv[])
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout);
 
-	auto FileName = std::string(Args.GetArgValue("file"));
-	if (FileName.empty())
+	auto CFileName = Args.GetArgValue("file");
+	if (CFileName == nullptr)
 		throw new std::runtime_error("Failed to provide a file name!");
+
+	auto FileName = std::string(CFileName);
 
 	// Loaded buffer of the PEFile
 	auto PEFile = LoadFile(FileName);
