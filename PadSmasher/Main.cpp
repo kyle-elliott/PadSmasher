@@ -137,18 +137,18 @@ std::vector<PEFunc> ParseMapFile(const std::string& FileName, const std::vector<
 			std::string *__cdecl std::forward<std::string&>(std::string *_Arg)
 			_Arg              = dword ptr   8
 			                  push    ebp                       55
-							  mov     ebp, esp                  8B EC
-							  mov     eax, [ebp+_Arg]           8B 45 08
-							  pop     ebp                       5D
-							  retn                              C3
-							                                    CC
-																CC
-																CC
-																CC
-																CC
-																CC
-																CC
-																CC
+					  mov     ebp, esp                  8B EC
+					  mov     eax, [ebp+_Arg]           8B 45 08
+					  pop     ebp                       5D
+					  retn                              C3
+							                    CC
+									    CC
+									    CC
+									    CC
+									    CC
+									    CC
+									    CC
+									    CC
 		*/
 
 		while (*OpCode != 0xCC)
